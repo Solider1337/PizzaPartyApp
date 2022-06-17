@@ -250,19 +250,6 @@ class _Size extends State<Size> {
               )),
         ),
         Positioned(
-          left: 319.0,
-          width: 150.0,
-          top: 877.0,
-          height: 8.0,
-          child: SvgPicture.asset(
-            'assets/images/line1.svg',
-            package: 'pizzaparty',
-            width: 150.000,
-            height: 8.000,
-            fit: BoxFit.none,
-          ),
-        ),
-        Positioned(
           left: 249.0,
           width: 290.0,
           top: 644.0,
