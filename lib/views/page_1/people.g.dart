@@ -25,7 +25,7 @@ class _People extends State<People> {
       color: Color(0xffff9692),
       child: Stack(children: [
         Positioned(
-          left: 185.0,
+          left: 0,
           width: 414.0,
           top: 167.0,
           height: 327.0,
@@ -39,20 +39,32 @@ class _People extends State<People> {
         ),
         Positioned(
           left: 0,
-          width: 784.0,
-          top: 470.0,
-          height: 426.0,
+          width: 414.0,
+          top: 449.0,
+          height: 447.0,
           child: Container(
-            width: 784.000,
-            height: 426.000,
+            width: 414.000,
+            height: 447.000,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(50)),
+              border: Border.all(
+                color: Color(0xff000000),
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x40000000),
+                  spreadRadius: 4,
+                  blurRadius: 4,
+                  offset: Offset(0, 4),
+                ),
+              ],
             ),
           ),
         ),
         Positioned(
-          left: 515.0,
+          left: 330.0,
           width: 64.0,
           top: 39.0,
           height: 64.0,
@@ -78,7 +90,7 @@ class _People extends State<People> {
               ])),
         ),
         Positioned(
-          left: 220.0,
+          left: 35.0,
           width: 174.0,
           top: 39.0,
           height: 108.0,
@@ -98,7 +110,7 @@ class _People extends State<People> {
               )),
         ),
         Positioned(
-          left: 211.0,
+          left: 26.0,
           width: 368.0,
           top: 535.0,
           height: 75.0,
@@ -118,7 +130,7 @@ class _People extends State<People> {
               )),
         ),
         Positioned(
-          left: 247.0,
+          left: 62.0,
           width: 290.0,
           top: 741.0,
           height: 70.0,
@@ -132,7 +144,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 258.0,
+          left: 73.0,
           width: 55.0,
           top: 748.0,
           height: 55.0,
@@ -145,7 +157,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 289.0,
+          left: 104.0,
           width: 1.0,
           top: 776.0,
           height: 3.0,
@@ -158,7 +170,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 342.0,
+          left: 157.0,
           width: 113.0,
           top: 758.0,
           height: 36.0,
@@ -178,7 +190,7 @@ class _People extends State<People> {
               )),
         ),
         Positioned(
-          left: 247.0,
+          left: 62.0,
           width: 290.0,
           top: 644.0,
           height: 70.0,
@@ -192,7 +204,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 313.0,
+          left: 128.0,
           width: 171.0,
           top: 644.0,
           height: 70.0,
@@ -212,7 +224,7 @@ class _People extends State<People> {
               )),
         ),
         Positioned(
-          left: 468.0,
+          left: 283.0,
           width: 55.0,
           top: 651.0,
           height: 55.0,
@@ -225,7 +237,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 258.0,
+          left: 73.0,
           width: 55.0,
           top: 651.0,
           height: 55.0,
@@ -238,7 +250,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 501.0,
+          left: 316.0,
           width: 1.0,
           top: 679.0,
           height: 3.0,
@@ -251,7 +263,7 @@ class _People extends State<People> {
           ),
         ),
         Positioned(
-          left: 278.0,
+          left: 93.0,
           width: 2.0,
           top: 679.0,
           height: 3.0,
