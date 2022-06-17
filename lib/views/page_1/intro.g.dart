@@ -25,9 +25,36 @@ class _Intro extends State<Intro> {
       color: Color(0xfff2c673),
       child: Stack(children: [
         Positioned(
-          left: 360.0,
+          left: 160.0,
+          width: 464.0,
+          top: 147.0,
+          height: 379.0,
+          child: Image.asset(
+            'assets/images/3786128removebgpreview1.png',
+            package: 'pizzaparty',
+            width: 464.000,
+            height: 379.000,
+            fit: BoxFit.none,
+          ),
+        ),
+        Positioned(
+          left: 0,
+          width: 784.0,
+          top: 470.0,
+          height: 426.0,
+          child: Container(
+            width: 784.000,
+            height: 426.000,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 517.0,
           width: 64.0,
-          top: 0,
+          top: 39.0,
           height: 64.0,
           child: Container(
               clipBehavior: Clip.hardEdge,
@@ -51,9 +78,9 @@ class _Intro extends State<Intro> {
               ])),
         ),
         Positioned(
-          left: 305.0,
+          left: 220.0,
           width: 174.0,
-          top: 64.0,
+          top: 39.0,
           height: 108.0,
           child: Container(
               width: 174.000,
@@ -71,22 +98,9 @@ class _Intro extends State<Intro> {
               )),
         ),
         Positioned(
-          left: 160.0,
-          width: 464.0,
-          top: 172.0,
-          height: 379.0,
-          child: Image.asset(
-            'assets/images/3786128removebgpreview1.png',
-            package: 'pizzaparty',
-            width: 464.000,
-            height: 379.000,
-            fit: BoxFit.none,
-          ),
-        ),
-        Positioned(
           left: 267.0,
           width: 250.0,
-          top: 551.0,
+          top: 526.0,
           height: 84.0,
           child: Container(
               width: 250.000,
@@ -106,7 +120,7 @@ class _Intro extends State<Intro> {
         Positioned(
           left: 247.0,
           width: 290.0,
-          top: 635.0,
+          top: 634.0,
           height: 54.0,
           child: Container(
               width: 290.000,
@@ -124,36 +138,9 @@ class _Intro extends State<Intro> {
               )),
         ),
         Positioned(
-          left: 0,
-          width: 784.0,
-          top: 689.0,
-          height: 426.0,
-          child: Container(
-            width: 784.000,
-            height: 426.000,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-            ),
-          ),
-        ),
-        Positioned(
-          left: 364.5,
-          width: 55.0,
-          top: 1115.0,
-          height: 55.0,
-          child: Image.asset(
-            'assets/images/ellipse1.png',
-            package: 'pizzaparty',
-            width: 55.000,
-            height: 55.000,
-            fit: BoxFit.none,
-          ),
-        ),
-        Positioned(
           left: 247.0,
           width: 290.0,
-          top: 1170.0,
+          top: 741.0,
           height: 70.0,
           child: Container(
             width: 290.000,
@@ -165,9 +152,35 @@ class _Intro extends State<Intro> {
           ),
         ),
         Positioned(
-          left: 322.5,
+          left: 258.0,
+          width: 55.0,
+          top: 748.0,
+          height: 55.0,
+          child: Image.asset(
+            'assets/images/ellipse1.png',
+            package: 'pizzaparty',
+            width: 55.000,
+            height: 55.000,
+            fit: BoxFit.none,
+          ),
+        ),
+        Positioned(
+          left: 289.0,
+          width: 1.0,
+          top: 776.0,
+          height: 3.0,
+          child: SvgPicture.asset(
+            'assets/images/arrow1.svg',
+            package: 'pizzaparty',
+            width: 1.000,
+            height: 3.000,
+            fit: BoxFit.none,
+          ),
+        ),
+        Positioned(
+          left: 343.0,
           width: 139.0,
-          top: 1240.0,
+          top: 758.0,
           height: 36.0,
           child: Container(
               width: 139.000,
@@ -183,19 +196,6 @@ class _Intro extends State<Intro> {
                 ),
                 textAlign: TextAlign.center,
               )),
-        ),
-        Positioned(
-          left: 391.5,
-          width: 1.0,
-          top: 1276.0,
-          height: 3.0,
-          child: SvgPicture.asset(
-            'assets/images/arrow1.svg',
-            package: 'pizzaparty',
-            width: 1.000,
-            height: 3.000,
-            fit: BoxFit.none,
-          ),
         ),
       ]),
     );
