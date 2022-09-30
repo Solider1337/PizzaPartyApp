@@ -1,12 +1,11 @@
-// *********************************************************************************
-// PARABEAC-GENERATED CODE. DO NOT MODIFY.
-//
-// FOR MORE INFORMATION ON HOW TO USE PARABEAC, PLEASE VISIT docs.parabeac.com
-// *********************************************************************************
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:pizzaparty/views/page_1/intro.g.dart';
+import 'package:pizzaparty/newlibs/global.dart';
+import 'package:lottie/lottie.dart';
 
 class End extends StatefulWidget {
   const End({
@@ -19,68 +18,45 @@ class End extends StatefulWidget {
 class _End extends State<End> {
   _End();
 
+  String stringx = 'x';
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return Material(
-      color: Color(0xffd4ff9d),
+      color: Color.fromRGBO(175, 199, 201, 1.0),
       child: Stack(children: [
-        Positioned(
-          left: 185.0,
-          width: 670.0,
-          top: 0,
-          height: 458.0,
-          child: Image.asset(
-            'assets/images/3786128removebgpreview1.png',
-            package: 'pizzaparty',
-            width: 670.000,
-            height: 458.000,
-            fit: BoxFit.none,
+        Container( //obrazel tla
+          width: double.infinity,
+          height: 500,
+          margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
+          child: Center(
+            child: Lottie.asset('assets/json_animations/90016-order-food.json', package: 'pizzaparty')
+            //Lottie.network('https://assets7.lottiefiles.com/private_files/lf30_ngjk4cxr.json'),
           ),
         ),
-        Positioned(
-          left: 0,
-          width: 784.0,
-          top: 405.0,
-          height: 527.0,
+        Positioned( //glowny box
+          left: -50,
+          width: (MediaQuery.of(context).size.width)+100,
+          top: 400.0,
+          height: 600.0,
           child: Container(
-            width: 784.000,
-            height: 527.000,
+            width: 414.000,
+            height: 447.000,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(50)),
+              borderRadius: BorderRadius.all(Radius.circular(250.0)),
             ),
           ),
         ),
-        Positioned(
-          left: 515.0,
-          width: 64.0,
-          top: 39.0,
-          height: 64.0,
-          child: Container(
-              clipBehavior: Clip.hardEdge,
-              width: 64.000,
-              height: 64.000,
-              decoration: BoxDecoration(),
-              child: Stack(children: [
-                Positioned(
-                  left: 1.964,
-                  width: 60.1,
-                  top: 7.596,
-                  height: 48.732,
-                  child: SvgPicture.asset(
-                    'assets/images/group.svg',
-                    package: 'pizzaparty',
-                    width: 60.100,
-                    height: 48.732,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              ])),
-        ),
-        Positioned(
-          left: 220.0,
+        Positioned( //tytul
+          left: 290.0,
           width: 174.0,
-          top: 39.0,
+          top: 55.0,
           height: 108.0,
           child: Container(
               width: 174.000,
@@ -97,127 +73,116 @@ class _End extends State<End> {
                 textAlign: TextAlign.left,
               )),
         ),
-        Positioned(
-          left: 220.0,
-          width: 368.0,
-          top: 448.0,
-          height: 75.0,
-          child: Container(
-              width: 368.000,
-              height: 75.000,
+        Container( //ile ludzi
+          width: double.infinity,
+          height: 400,
+          margin: EdgeInsets.only(left: 0, top:270, right: 0, bottom:0),
+          child: Center(
               child: AutoSizeText(
-                'You need to order',
+                'need_to_order'.tr,
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 28,
+                  fontSize: 27,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0,
                   color: Color(0xff464646),
                 ),
                 textAlign: TextAlign.center,
-              )),
-        ),
-        Positioned(
-          left: 247.0,
-          width: 290.0,
-          top: 741.0,
-          height: 70.0,
-          child: Container(
-            width: 290.000,
-            height: 70.000,
-            decoration: BoxDecoration(
-              color: Color(0xffd4ff9d),
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-            ),
+              )
           ),
         ),
-        Positioned(
-          left: 258.0,
-          width: 55.0,
-          top: 748.0,
-          height: 55.0,
-          child: Image.asset(
-            'assets/images/ellipse1.png',
-            package: 'pizzaparty',
-            width: 55.000,
-            height: 55.000,
-            fit: BoxFit.none,
-          ),
-        ),
-        Positioned(
-          left: 281.0,
-          width: 1.5,
-          top: 776.0,
-          height: 3.0,
-          child: SvgPicture.asset(
-            'assets/images/arrow1.svg',
-            package: 'pizzaparty',
-            width: 1.500,
-            height: 3.000,
-            fit: BoxFit.none,
-          ),
-        ),
-        Positioned(
-          left: 339.0,
-          width: 145.0,
-          top: 758.0,
-          height: 36.0,
-          child: Container(
-              width: 145.000,
-              height: 36.000,
+        Container( //ile ludzi
+          width: double.infinity,
+          height: 400,
+          margin: EdgeInsets.only(left: 0, top:500, right: 0, bottom:0),
+          child: Center(
               child: AutoSizeText(
-                'Recalculate',
+                'pizza_result'.tr + ' $people_counter' + 'peoples_result'.tr + ' $slices_counter' + 'slicesforeach_result'.tr + ' $size_counter' + 'slices_result'.tr,
+
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              )),
-        ),
-        Positioned(
-          left: 313.0,
-          width: 171.0,
-          top: 474.0,
-          height: 70.0,
-          child: Container(
-              width: 171.000,
-              height: 70.000,
-              child: AutoSizeText(
-                '2',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 124,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0,
-                  color: Color(0xff464646),
-                ),
-                textAlign: TextAlign.center,
-              )),
-        ),
-        Positioned(
-          left: 220.0,
-          width: 368.0,
-          top: 622.0,
-          height: 75.0,
-          child: Container(
-              width: 368.000,
-              height: 75.000,
-              child: AutoSizeText(
-                'pizzas, for 3 people, 1 slice each, pizza is 8 slices.',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 28,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0,
                   color: Color(0xff464646),
                 ),
                 textAlign: TextAlign.center,
-              )),
+              )
+          ),
         ),
-      ]),
+        Container( //przycisk recalculate
+          width: double.infinity,
+          height: 500,
+          margin: EdgeInsets.only(left: 0, top:680, right: 0, bottom:0),
+          child: Center(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                highlightColor: Color.fromRGBO(175, 199, 201, 0.3),
+                splashColor: Color.fromRGBO(175, 199, 201, 0.9),
+                borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  width: 290.000,
+                  height: 70.000,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(175, 199, 201, 0.6),
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                  child: Container(
+                      width: double.infinity,
+                      height: 10,
+                      margin: EdgeInsets.only(left: 0, top:20, right: 0, bottom:0),
+                      child: AutoSizeText(
+                        'recalculate'.tr,
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      )
+                  ),
+                ),
+                onTap: () {
+                  o = 0;
+                  summary = 0;
+                  slices = 0;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Intro()),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+
+        Container(
+          width: double.infinity,
+          height: 300,
+          margin: EdgeInsets.only(left: 0, top:400, right: 0, bottom:0),
+          child: Center(
+            child: Container(
+                width: 120.000,
+                height: 120.000,
+                child: AutoSizeText(
+                  '$summary$stringx',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 132,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0,
+                    color: Color(0xff464646),
+                  ),
+                  textAlign: TextAlign.center,
+                )
+            ),
+          ),
+        ),
+      ]
+      ),
     );
   }
 
