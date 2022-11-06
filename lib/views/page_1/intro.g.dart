@@ -3,17 +3,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:pizzaparty/transitions/PageRoute.dart';
 import 'package:pizzaparty/views/page_1/people.g.dart';
 import 'package:pizzaparty/classes/classes.dart';
 import 'package:pizzaparty/widgets/settings_ui.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
 
 class Intro extends StatefulWidget {
   const Intro({
     Key? key,
   }) : super(key: key);
+
   @override
   _Intro createState() => _Intro();
 }
@@ -28,18 +31,48 @@ class _Intro extends State<Intro> {
       DeviceOrientation.portraitDown,
     ]);
 
-    return Material(
-      color: Colors.orange[300],
-      child: Stack(children: [
-        Container( //obrazel tla
-          width: double.infinity,
-          height: 600,
-          margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
-              child: Lottie.asset('assets/json_animations/87237-pizza-preloader.json', package: 'pizzaparty')
+    return Scaffold(
+      body: Stack(fit: StackFit.expand, children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+              color: new Color(0xffffffff),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [new Color(0xffFDB777), new Color(0xffFF6200)])),
         ),
-        Positioned( //glowny box
+        Container(
+          decoration: BoxDecoration(
+              color: new Color(0xfffffff),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.black45, Colors.orange])),
+        ),
+        Align(
+          alignment: FractionalOffset.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                  //obrazel tla
+                  width: (MediaQuery.of(context).size.width),
+                  height: 600,
+                  margin:
+                      EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 150),
+                  child: Lottie.asset(
+                    'assets/json_animations/87237-pizza-preloader.zip',
+                    package: 'pizzaparty',
+                    fit: BoxFit.contain,
+                  )
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+          //glowny box
           left: -50,
-          width: (MediaQuery.of(context).size.width)+100,
+          width: (MediaQuery.of(context).size.width) + 100,
           top: 410.0,
           height: 600.0,
           child: Container(
@@ -51,66 +84,65 @@ class _Intro extends State<Intro> {
             ),
           ),
         ),
-        Positioned( //tytul
-          left: 35.0,
-          width: 174.0,
-          top: 50.0,
+        Positioned(
+          //tytul
+          left: 20.0,
+          top: 70.0,
           height: 108.0,
           child: Container(
               width: 174.000,
               height: 108.000,
               child: AutoSizeText(
-                '',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 36,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.white,
-                ),
+                "Pizza Party",
                 textAlign: TextAlign.left,
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 40,
+                        height: 0.8,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900)),
               )),
         ),
-        Container( //ile ludzi
+        Container(
+          //ile ludzi
           width: double.infinity,
           height: 500,
-          margin: EdgeInsets.only(left: 0, top:300, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top: 300, right: 0, bottom: 0),
           child: Center(
-              child: AutoSizeText(
-                'intro_message'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 27,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Color(0xff464646),
-                ),
-                textAlign: TextAlign.center,
-              )
+            child: AutoSizeText(
+              'intro_message'.tr,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                      fontSize: 28,
+                      height: 1.2,
+                      color: Color(0xff464646),
+                      fontWeight: FontWeight.w400)),
+            ),
           ),
         ),
-        Container( //ile ludzi
+        Container(
+          //ile ludzi
           width: double.infinity,
           height: 300,
-          margin: EdgeInsets.only(left: 10, top:450, right: 10, bottom:0),
+          margin: EdgeInsets.only(left: 10, top: 450, right: 10, bottom: 0),
           child: Center(
               child: AutoSizeText(
-                'app_info'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.center,
-              )
-          ),
+            'app_info'.tr,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.lato(
+                textStyle: TextStyle(
+                    fontSize: 19,
+                    height: 1.0,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w800)),
+          )),
         ),
-        Container( //przycisk continue
+        Container(
+          //przycisk continue
           width: double.infinity,
           height: 500,
-          margin: EdgeInsets.only(left: 0, top:680, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top: 680, right: 0, bottom: 0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -122,40 +154,47 @@ class _Intro extends State<Intro> {
                   width: 290.000,
                   height: 70.000,
                   decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.6),
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
-                  ),
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                      color: new Color(0xffffffff),
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [
+                            new Color(0xffFDB777),
+                            new Color(0xffFD9346)
+                          ])),
                   child: Container(
                       width: double.infinity,
                       height: 10,
-                      margin: EdgeInsets.only(left: 0, top:20, right: 0, bottom:0),
+                      margin: EdgeInsets.only(
+                          left: 0, top: 20, right: 0, bottom: 0),
                       child: AutoSizeText(
                         'start_button'.tr,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0,
-                          color: Colors.white,
-                        ),
                         textAlign: TextAlign.center,
-                      )
-                  ),
+                        style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: 27,
+                                height: 1.1,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900)),
+                      )),
                 ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const People()),
-                    );
-                  }
+                onTap: () {
+                  Navigator.of(context).push(
+                    MyCustomAnimatedRoute(
+                      enterWidget: People(),
+                    ),
+                  );
+                },
               ),
             ),
           ),
         ),
-        Container( //przycisk menu
+        Container(
+          //przycisk menu
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 300, top:50, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 300, top: 50, right: 0, bottom: 650),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -171,9 +210,10 @@ class _Intro extends State<Intro> {
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                     ),
                     child: Container(
-                        width: double.infinity,
-                        height: 10,
-                        margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
+                      width: double.infinity,
+                      height: 10,
+                      margin:
+                          EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 0),
                       child: Icon(
                         Icons.menu_outlined,
                         color: Colors.white,
@@ -186,13 +226,11 @@ class _Intro extends State<Intro> {
                       context,
                       CustomPageRoute(child: Settingsmenu()),
                     );
-                  }
-              ),
+                  }),
             ),
           ),
         ),
-      ]
-      ),
+      ]),
     );
   }
 

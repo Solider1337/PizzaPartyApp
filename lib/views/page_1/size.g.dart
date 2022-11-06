@@ -3,11 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pizzaparty/Lang/LangString.dart';
 import 'package:pizzaparty/classes/classes.dart';
+import 'package:pizzaparty/transitions/PageRoute.dart';
 import 'package:pizzaparty/views/page_1/end.g.dart';
 import 'package:pizzaparty/newlibs/global.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pizzaparty/views/page_1/people.g.dart';
 
 class Size extends StatefulWidget {
   const Size({
@@ -49,21 +52,39 @@ class _Size extends State<Size> {
       DeviceOrientation.portraitDown,
     ]);
 
-    return Material(
-      color: Colors.amber[300],
-      child: Stack(children: [
-        Container( //obrazel tla
-          width: double.infinity,
-          height: 430,
-          margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
-          child: Center(
-            child: Lottie.asset('assets/json_animations/64809-pizza-loading.json', package: 'pizzaparty')
+    return Scaffold(
+      body: Stack(fit: StackFit.expand, children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+              color: new Color(0xffffffff),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [new Color(0xffFCA6D1), new Color(0xffC091DB)])
+          ),
+        ),
+        Align(
+          alignment: FractionalOffset.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                //obrazel tla
+                  width: (MediaQuery.of(context).size.width),
+                  height: 700,
+                  margin: EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 200),
+                  child: Lottie.asset(
+                    'assets/json_animations/64809-pizza-loading.zip',
+                    package: 'pizzaparty',
+                    fit: BoxFit.fitWidth,
+                  )),
+            ],
           ),
         ),
         Positioned( //glowny box
           left: -50,
           width: (MediaQuery.of(context).size.width)+100,
-          top: 330.0,
+          top: 320.0,
           height: 700.0,
           child: Container(
             width: 414.000,
@@ -74,103 +95,74 @@ class _Size extends State<Size> {
             ),
           ),
         ),
-        Positioned( //lapki kotka
-          left: 330.0,
-          width: 64.0,
-          top: 39.0,
-          height: 64.0,
-          child: Container(
-              clipBehavior: Clip.hardEdge,
-              width: 64.000,
-              height: 64.000,
-              decoration: BoxDecoration(),
-              child: Stack(children: [
-                Positioned(
-                  left: 1.964,
-                  width: 60.1,
-                  top: 7.596,
-                  height: 48.732,
-                  child: SvgPicture.asset(
-                    'assets/images/group.svg',
-                    package: 'pizzaparty',
-                    width: 60.100,
-                    height: 48.732,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              ])),
-        ),
-        Positioned( //tytul
-          left: 35.0,
-          width: 174.0,
-          top: 50.0,
+        Positioned(
+          //tytul
+          left: 20.0,
+          top: 70.0,
           height: 108.0,
           child: Container(
               width: 174.000,
               height: 108.000,
               child: AutoSizeText(
-                'Pizza Party',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 36,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.white,
-                ),
+                "Pizza Party",
                 textAlign: TextAlign.left,
-              )),
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 40,
+                        height: 0.8,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900)),
+              )
+          ),
         ),
         Container( //ile ludzi
           width: double.infinity,
           height: 200,
-          margin: EdgeInsets.only(left: 0, top:350, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:50, right: 0, bottom:0),
           child: Center(
               child: AutoSizeText(
                 'how_many_pieces'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 27,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Color(0xff464646),
-                ),
                 textAlign: TextAlign.center,
-              )
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 28,
+                        height: 1.2,
+                        color: Color(0xff464646),
+                        fontWeight: FontWeight.w400)),
+              ),
           ),
         ),
         Container( //ile ludzi
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 10, top:545, right: 10, bottom:0),
+          margin: EdgeInsets.only(left: 10, top:380, right: 10, bottom:0),
           child: Center(
               child: AutoSizeText(
                 'popular_size'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.grey,
-                ),
                 textAlign: TextAlign.center,
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 16,
+                        height: 1.0,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w800)),
               )
           ),
         ),
         Container( //ile ludzi
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 10, top:450, right: 10, bottom:0),
+          margin: EdgeInsets.only(left: 10, top:170, right: 10, bottom:0),
           child: Center(
               child: AutoSizeText(
                 'how_many_pieces_2'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.grey,
-                ),
                 textAlign: TextAlign.center,
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 16,
+                        height: 1.0,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w800)),
               )
           ),
         ),
@@ -189,8 +181,12 @@ class _Size extends State<Size> {
                   width: 290.000,
                   height: 70.000,
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.6),
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                      color: new Color(0xffffffff),
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [new Color(0xffFCA6D1), new Color(0xffC091DB)])
                   ),
                   child: Container(
                       width: double.infinity,
@@ -198,22 +194,22 @@ class _Size extends State<Size> {
                       margin: EdgeInsets.only(left: 0, top:20, right: 0, bottom:0),
                       child: AutoSizeText(
                         'continue'.tr,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0,
-                          color: Colors.white,
-                        ),
                         textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: 27,
+                                height: 1.1,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900)),
                       )
                   ),
                 ),
                 onTap: () {
                   Calc_pizza();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const End()),
+                  Navigator.of(context).push(
+                    MyCustomAnimatedRoute(
+                      enterWidget: End(),
+                    ),
                   );
                 },
               ),
@@ -226,14 +222,18 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:600, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:500, right: 0, bottom:0),
           child: Center(
             child: Container(
               width: 190.000,
               height: 70.000,
               decoration: BoxDecoration(
-                color: Colors.amber[200],
                 borderRadius: BorderRadius.all(Radius.circular(50)),
+                  color: new Color(0xffffffff),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomLeft,
+                      colors: [new Color(0xffFCA6D1), new Color(0xffC091DB)])
               ),
             ),
           ),
@@ -242,7 +242,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:605, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:510, right: 0, bottom:0),
           child: Center(
             child: Container(
                 width: 171.000,
@@ -265,7 +265,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 110,
-          margin: EdgeInsets.only(left: 120, top:595, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 120, top:500, right: 0, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -294,7 +294,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 110,
-          margin: EdgeInsets.only(left: 0, top:595, right: 120, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:500, right: 120, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -319,38 +319,14 @@ class _Size extends State<Size> {
             ),
           ),
         ),
-        Container(
-          width: double.infinity,
-          height: 110,
-          margin: EdgeInsets.only(left: 120, top:595, right: 0, bottom:0),
-          child: Center(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                highlightColor: Colors.amber.withOpacity(0.3),
-                splashColor: Colors.amber.withOpacity(0.9),
-                borderRadius: BorderRadius.circular(50),
-                onTap: () {
-                  _incrementCounter();
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50.0),
-                  child: Image.asset(
-                    'assets/images/ellipse1_1.png',
-                    package: 'pizzaparty',
-                    width: 70.000,
-                    height: 70.000,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+
+
+        //rozmiary
+
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:500, right: 200, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:300, right: 200, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -380,7 +356,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:500, right: 70, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:300, right: 70, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -410,7 +386,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 70, top:500, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 70, top:300, right: 0, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -440,7 +416,7 @@ class _Size extends State<Size> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 200, top:500, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 200, top:300, right: 0, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,

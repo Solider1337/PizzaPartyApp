@@ -1,4 +1,4 @@
-#Fri Sep 30 18:47:58 CEST 2022
+#Tue Nov 01 00:59:48 CET 2022
 base.0=C\:\\Users\\mdyl2\\StudioProjects\\PizzaGit\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

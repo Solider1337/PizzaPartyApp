@@ -15,20 +15,31 @@ dependencies:
   provider: ^5.0.0
   get:
   lottie: ^1.4.2
-  flutter_native_splash: ^2.2.9
+  webview_flutter: ^3.0.4
+  google_fonts: ^2.1.8
+  firebase_messaging: ^14.0.3
 
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.2.9
+  flutter_launcher_icons: ^0.10.0
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/images/pizzalogotransparent.png"
+
 flutter: 
   uses-material-design: true
   assets:
-    - packages/pizzaparty/assets/json_animations/87237-pizza-preloader.json
-    - packages/pizzaparty/assets/json_animations/29774-dance-party.json
-    - packages/pizzaparty/assets/json_animations/63703-pizza.json
-    - packages/pizzaparty/assets/json_animations/64809-pizza-loading.json
-    - packages/pizzaparty/assets/json_animations/90016-order-food.json
+    - packages/pizzaparty/assets/json_animations/38964-group-of-people-communicating.zip
+    - packages/pizzaparty/assets/json_animations/87237-pizza-preloader.zip
+    - packages/pizzaparty/assets/json_animations/67226-food-app-interaction.zip
+    - packages/pizzaparty/assets/json_animations/63703-pizza.zip
+    - packages/pizzaparty/assets/json_animations/64809-pizza-loading.zip
     - packages/pizzaparty/assets/images/3786128removebgpreview1.png
     - packages/pizzaparty/assets/images/group.svg
     - packages/pizzaparty/assets/images/ellipse1.png
@@ -52,7 +63,8 @@ flutter:
     - packages/pizzaparty/assets/images/size_xl.png
     - packages/pizzaparty/assets/images/frameintro.jpg
     - packages/pizzaparty/assets/images/pizzalogotransparent.png
+    - packages/pizzaparty/assets/index.html
 
 flutter_native_splash:
-  color: "#42a5f5"
   image: lib/assets/images/pizzalogotransparent.png
+  color: "#FFB74D"

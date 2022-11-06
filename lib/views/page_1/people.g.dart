@@ -4,8 +4,18 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pizzaparty/newlibs/global.dart';
+import 'package:pizzaparty/transitions/PageRoute.dart';
 import 'package:pizzaparty/views/page_1/slices.g.dart';
 import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+Future<Widget> buildPageAsync() async {
+  return Future.microtask(() {
+    return People();
+  });
+}
+
+
 
 class People extends StatefulWidget {
   const People({
@@ -42,15 +52,36 @@ class _People extends State<People> {
       DeviceOrientation.portraitDown,
     ]);
 
-    return Material(
-      color: Color(0xffff9692),
-      child: Stack(children: [
-        Container( //obrazel tla
-          width: double.infinity,
-          height: 670,
-          margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
-          child: Center(
-            child: Lottie.asset('assets/json_animations/29774-dance-party.json', package: 'pizzaparty')
+    return Scaffold(
+      body: Stack(fit: StackFit.expand, children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+              color: new Color(0xffffffff),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    new Color(0xffE8B3BB),
+                    new Color(0xffEC5653)
+                  ])
+          ),
+        ),
+        Align(
+          alignment: FractionalOffset.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                //obrazel tla
+                  width: (MediaQuery.of(context).size.width),
+                  height: 400,
+                  margin: EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 250),
+                  child: Lottie.asset(
+                    'assets/json_animations/38964-group-of-people-communicating.zip',
+                    package: 'pizzaparty',
+                    fit: BoxFit.contain,
+                  )),
+            ],
           ),
         ),
         Positioned( //glowny box
@@ -67,51 +98,25 @@ class _People extends State<People> {
             ),
           ),
         ),
-        Positioned( //lapki kotka
-          left: 330.0,
-          width: 64.0,
-          top: 39.0,
-          height: 64.0,
-          child: Container(
-              clipBehavior: Clip.hardEdge,
-              width: 64.000,
-              height: 64.000,
-              decoration: BoxDecoration(),
-              child: Stack(children: [
-                Positioned(
-                  left: 1.964,
-                  width: 60.1,
-                  top: 7.596,
-                  height: 48.732,
-                  child: SvgPicture.asset(
-                    'assets/images/group.svg',
-                    package: 'pizzaparty',
-                    width: 60.100,
-                    height: 48.732,
-                    fit: BoxFit.none,
-                  ),
-                ),
-              ])),
-        ),
-        Positioned( //tytul
-          left: 35.0,
-          width: 174.0,
-          top: 50.0,
+        Positioned(
+          //tytul
+          left: 20.0,
+          top: 70.0,
           height: 108.0,
           child: Container(
               width: 174.000,
               height: 108.000,
               child: AutoSizeText(
-                'Pizza Party',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 36,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.white,
-                ),
+                "Pizza Party",
                 textAlign: TextAlign.left,
-              )),
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 40,
+                        height: 0.8,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900)),
+              )
+          ),
         ),
         Container( //ile ludzi
           width: double.infinity,
@@ -120,15 +125,14 @@ class _People extends State<People> {
           child: Center(
               child: AutoSizeText(
                 'how_many_people'.tr,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 27,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Color(0xff464646),
-                ),
                 textAlign: TextAlign.center,
-              )
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 28,
+                        height: 1.2,
+                        color: Color(0xff464646),
+                        fontWeight: FontWeight.w400)),
+              ),
           ),
         ),
         Container( //przycisk continue
@@ -146,32 +150,36 @@ class _People extends State<People> {
                 width: 290.000,
                 height: 70.000,
                 decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.6),
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    color: new Color(0xffffffff),
+                    gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [new Color(0xffE8B3BB), new Color(0xffCF4A47)])
                 ),
                 child: Container(
                   width: double.infinity,
                   height: 10,
                   margin: EdgeInsets.only(left: 0, top:20, right: 0, bottom:0),
-                  child: AutoSizeText(
-                    'continue'.tr,
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                )
+                    child: AutoSizeText(
+                      'continue'.tr,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              fontSize: 27,
+                              height: 1.1,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900)),
+                    )
                 ),
               ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Slices()),
-                  );
-                }
+              onTap: () {
+                Navigator.of(context).push(
+                  MyCustomAnimatedRoute(
+                    enterWidget: Slices(),
+                  ),
+                );
+              },
             ),
             ),
           ),
@@ -182,14 +190,18 @@ class _People extends State<People> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:600, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:500, right: 0, bottom:0),
           child: Center(
             child: Container(
               width: 190.000,
               height: 70.000,
               decoration: BoxDecoration(
-                color: Color(0xe0ffa4a0),
                 borderRadius: BorderRadius.all(Radius.circular(50)),
+                  color: new Color(0xffffffff),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomLeft,
+                      colors: [new Color(0xffE8B3BB), new Color(0xffCF4A47)])
               ),
             ),
           ),
@@ -198,7 +210,7 @@ class _People extends State<People> {
         Container(
           width: double.infinity,
           height: 100,
-          margin: EdgeInsets.only(left: 0, top:605, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:510, right: 0, bottom:0),
           child: Center(
             child: Container(
                 width: 171.000,
@@ -221,7 +233,7 @@ class _People extends State<People> {
         Container(
           width: double.infinity,
           height: 110,
-          margin: EdgeInsets.only(left: 120, top:595, right: 0, bottom:0),
+          margin: EdgeInsets.only(left: 120, top:500, right: 0, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,
@@ -250,7 +262,7 @@ class _People extends State<People> {
         Container(
           width: double.infinity,
           height: 110,
-          margin: EdgeInsets.only(left: 0, top:595, right: 120, bottom:0),
+          margin: EdgeInsets.only(left: 0, top:500, right: 120, bottom:0),
           child: Center(
             child: Material(
               color: Colors.transparent,

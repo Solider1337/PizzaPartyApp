@@ -1,12 +1,13 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:pizzaparty/newlibs/global.dart';
+import 'package:flutter/services.dart';
+import 'package:pizzaparty/views/page_1/people.g.dart';
+import 'package:pizzaparty/widgets/policy.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
-
-
+import 'package:webview_flutter/webview_flutter.dart';
 
 
 class Settingsmenu extends StatefulWidget {
@@ -24,11 +25,20 @@ class _Settingsmenu extends State<Settingsmenu> {
     return Scaffold(
       appBar: AppBar(
         title: Text('settings'.tr),
+        backgroundColor: Colors.orange[300],
+        shadowColor: Colors.orange,
+
       ),
       body: SettingsList(
         sections: [
           SettingsSection(
-            title: Text('Set up your preferences'),
+            title: Text('Set up your preferences',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black54,
+              fontWeight: FontWeight.w200,
+                fontSize: 25,
+            ),
+            ),
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: Icon(Icons.language),
@@ -44,22 +54,16 @@ class _Settingsmenu extends State<Settingsmenu> {
               SettingsTile.switchTile(
                 onToggle: (value) {},
                 initialValue: true,
-                leading: Icon(Icons.audiotrack),
-                title: Text('Enable Sound'),
-              ),
-              SettingsTile.switchTile(
-                onToggle: (value) {},
-                initialValue: false,
-                leading: Icon(Icons.format_paint),
-                title: Text('Dark theme'),
+                leading: Icon(Icons.notifications),
+                title: Text('Enable Notifications'),
               ),
               SettingsTile.navigation(
                 leading: Icon(Icons.document_scanner),
-                title: Text('Terms of Service'),
+                title: Text('Privacy Police'),
                 onPressed: (BuildContext context) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Langmenu()),
+                    MaterialPageRoute(builder: (context) => WebViewTest()),
                   );
                 },
               ),
@@ -68,9 +72,60 @@ class _Settingsmenu extends State<Settingsmenu> {
                 title: Text('Report a Bug'),
                 value: Text("or send a sugestion"),
                 onPressed: (BuildContext context) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Langmenu()),
+                  showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 400,
+                        color: Colors.white,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(Icons.bug_report, size: 60, color: Colors.grey[800],),
+                              Padding(padding: EdgeInsets.only(top: 30.0)),
+                              const Text('Report a bug or send a sugestion',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 30.0)),
+                              const Text('If you want to report a bug: \nsend mail to mdyl245@gmail.com',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 25.0)),
+                              const Text('If you want to send a sugestion: \nwrite it on comment in Google Play.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 25.0)),
+                              ElevatedButton(
+                                child: const Text('OK'),
+                                onPressed: () => Navigator.pop(context),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.orange[300],
+
+                                )
+
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -78,9 +133,60 @@ class _Settingsmenu extends State<Settingsmenu> {
                 leading: Icon(Icons.info_outlined),
                 title: Text('About us'),
                 onPressed: (BuildContext context) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Langmenu()),
+                  showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 450,
+                        color: Colors.white,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(Icons.info_outlined, size: 60, color: Colors.grey[800],),
+                              Padding(padding: EdgeInsets.only(top: 30.0)),
+                              const Text('About us',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 30.0)),
+                              const Text('ROCKET STUDIO \n > _ Your life becomes easier with our applications.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 25.0)),
+                              const Text('At rocket studio, we solve peoples everyday problems and try to make their lives better.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.black54,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 25.0)),
+                              ElevatedButton(
+                                  child: const Text('OK'),
+                                  onPressed: () => Navigator.pop(context),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.orange[300],
+
+                                  )
+
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -106,23 +212,24 @@ class _Langmenu extends State<Langmenu> {
   late SharedPreferences preferences;
 
   @override
-  void initState(){
-    super.initState();
-    init();
-  }
-  Future init() async {
-    preferences =await SharedPreferences.getInstance();
-  }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('select_language'.tr),
+        title: Text('settings'.tr),
+        backgroundColor: Colors.orange[300],
+        shadowColor: Colors.orange,
+
       ),
       body: SettingsList(
         sections: [
           SettingsSection(
-            title: Text('Set up your preferences'),
+            title: Text('Choose your language',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black54,
+              fontWeight: FontWeight.w200,
+              fontSize: 25,
+            ),
+            ),
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: Icon(Icons.language),
@@ -168,7 +275,5 @@ class _Langmenu extends State<Langmenu> {
     );
   }
 }
-
-
 
 

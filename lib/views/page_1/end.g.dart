@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pizzaparty/views/page_1/intro.g.dart';
 import 'package:pizzaparty/newlibs/global.dart';
 import 'package:lottie/lottie.dart';
@@ -35,7 +36,7 @@ class _End extends State<End> {
           height: 500,
           margin: EdgeInsets.only(left: 0, top:0, right: 0, bottom:0),
           child: Center(
-            child: Lottie.asset('assets/json_animations/90016-order-food.json', package: 'pizzaparty')
+            child: Lottie.asset('assets/json_animations/67226-food-app-interaction.zip', package: 'pizzaparty')
             //Lottie.network('https://assets7.lottiefiles.com/private_files/lf30_ngjk4cxr.json'),
           ),
         ),
@@ -53,25 +54,25 @@ class _End extends State<End> {
             ),
           ),
         ),
-        Positioned( //tytul
-          left: 290.0,
-          width: 174.0,
-          top: 55.0,
+        Positioned(
+          //tytul
+          left: 285.0,
+          top: 70.0,
           height: 108.0,
           child: Container(
               width: 174.000,
               height: 108.000,
               child: AutoSizeText(
-                'Pizza Party',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 36,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0,
-                  color: Colors.white,
-                ),
+                "Pizza Party",
                 textAlign: TextAlign.left,
-              )),
+                style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 40,
+                        height: 0.8,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900)),
+              )
+          ),
         ),
         Container( //ile ludzi
           width: double.infinity,
@@ -134,14 +135,13 @@ class _End extends State<End> {
                       margin: EdgeInsets.only(left: 0, top:20, right: 0, bottom:0),
                       child: AutoSizeText(
                         'recalculate'.tr,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0,
-                          color: Colors.white,
-                        ),
                         textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: 27,
+                                height: 1.1,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900)),
                       )
                   ),
                 ),

@@ -1,0 +1,4 @@
+#Fri Oct 14 03:32:14 CEST 2022
+base.0=C\:\\Users\\mdyl2\\StudioProjects\\PizzaGit\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
