@@ -1,16 +1,13 @@
 # pizzaparty
+The application calculates how much you need to order pizzas.
 
-A new Flutter project.
+Alpha 1.0
+Using flutter framework and Dark lang.
 
-## Getting Started
+The official version will be available in April 2023 on play store.
 
-This project is a starting point for a Flutter application.
+If you want to edit the application, please send your corrections as a pull request, I'll be grateful.
+It is forbidden to sign the application as your own.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![pizzaparty](https://user-images.githubusercontent.com/53154301/200153021-735d2991-0667-4ead-b506-a18e30772845.jpg)
